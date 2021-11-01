@@ -4,12 +4,12 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 public class Main {
-    public static void countYear(int currentYear) {
-        int year = currentYear;
-        if (year % 400 == 0 || year % 4 == 0 && (year != 100)) {
-            System.out.println(year + " Високосный год");
-        } else System.out.println(year + " Невисокосный год");
-    }
+    public static void printIsYearLeap (int currentYear) {
+    int year = currentYear;
+    if (year % 400 == 0 || year % 4 == 0 && (year != 100)) {
+        System.out.println(year + " Високосный год");
+    } else System.out.println(year + " Невисокосный год");
+}
 
     public static void determineIos(int year, int iosType) {
         if (year < 2015 && iosType < 1) {
@@ -46,11 +46,11 @@ public class Main {
         return distance;
     }
 
-    public static void index(String inner) {
-        char[] c = inner.toCharArray();
-        for (int i = 0; i < c.length; i++) {
-            for (int j = i + 1; j < c.length; j++) {
-                if (c[i] == c[j]) {
+    public static void findOutDuplicates(String inner) {
+        char[] text = inner.toCharArray();
+        for (int i = 0; i < text.length; i++) {
+            for (int j = i + 1; j < text.length; j++) {
+                if (text[i] == text[j]) {
                     System.out.println("имеются дубликаты");
                     return;
                 }
@@ -71,11 +71,11 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Задание 1");
         int leapYear = 1400;
-        countYear(leapYear);
+        printIsYearLeap(leapYear);
         System.out.println();
 
         System.out.println("Задание 2");
-        int ios = 1;
+        int ios = 0;
         int currentYear = LocalDate.now().getYear();
         determineIos(currentYear,ios);
         System.out.println();
@@ -86,16 +86,14 @@ public class Main {
         System.out.println();
 
         System.out.println("Задание 4");
-        String str = "abc";
-        index(str);
+        String str = "abbbccc";
+        findOutDuplicates(str);
         System.out.println();
 
         System.out.println("Задание 5");
         int[] array = {3, 2, 1, 6, 5};
         reverseArray(array);
         System.out.println(Arrays.toString(array));
-
     }
 }
-
 
